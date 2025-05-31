@@ -1,0 +1,217 @@
+:root {
+    --primary-color: #233db3;
+    --secondary-color: #3f37c9;
+    --accent-color: #4cc9f0;
+    --text-color: #efefef;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --success-color: #4ad66d;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 20px;
+    background: url(background-5035259_960_720.webp);
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.cartao {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    cursor: pointer;
+    height: 250px;
+    perspective: 1000px;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.cartao__conteudo {
+    padding: 20px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cartao__conteudo h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cartao__conteudo__pergunta {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.cartao__conteudo__resposta {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transform: rotateY(180deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.cartao.virado {
+    transform: rotateY(180deg);
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    #container {
+        grid-template-columns: 1fr;
+    }
+    
+    .cartao {
+        height: 200px;
+    }
+}
+
+/* Efeito de hover moderno */
+.cartao:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.cartao.virado:hover {
+    transform: rotateY(180deg) translateY(-5px);
+}
+
+.cartao {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    perspective: 1000px;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: var(--sombra);
+}
+
+.cartao__frente, .cartao__verso {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: var(--transicao);
+    border-radius: inherit;
+}
+
+.cartao__frente {
+    background: rgb(10, 33, 122);
+    color: var(--cor-texto);
+}
+
+.cartao__verso {
+    background: rgb(10, 33, 122);
+    color: rgb(227, 228, 230);
+    transform: rotateY(180deg);
+}
+
+.cartao__categoria {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--cor-primaria);
+    text-transform: uppercase;
+}
+
+.cartao__texto {
+    font-size: 1.1rem;
+    margin: 1rem 0;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.cartao__acao {
+    font-size: 0.8rem;
+    color: var(--cor-texto-claro);
+    margin-top: auto;
+}
+
+.cartao--virado .cartao__frente {
+    transform: rotateY(180deg);
+}
+
+.cartao--virado .cartao__verso {
+    transform: rotateY(0deg);
+}
+
+/* Efeito hover moderno */
+.cartao:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Layout responsivo */
+#container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+@media (max-width: 768px) {
+    .cartao {
+        height: 250px;
+    }
+}
